@@ -10,7 +10,7 @@ class MenuListCreate(APIView):
         query_params = MenuQueryParams(data=request.query_params)
         if not query_params.is_valid():
             return Response({'error': 'wrong query params'}, status=400)
-        queryset = Menu.objects.all().order_by('dish')
+        queryset = Menu.objects.all().order_by('id')
         search = query_params.data.get('search')
         ordering = query_params.data.get('ordering')
         if search:
